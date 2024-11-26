@@ -2,8 +2,11 @@ import React from 'react';
 import '../styles/pages/file-view.scss';
 
 const FileView = ({file}) => {
-  const maxVal = Math.max(file.doorNumber, file.windowNumber, file.textNumber);
-  const score = ((file.doorNumber * 5 + file.windowNumber * 4 + file.textNumber)/(5*maxVal + 4*maxVal + maxVal))*100;
+  let score =0;
+  if (file){
+    const maxVal = Math.max(file.doorNumber, file.windowNumber, file.textNumber);
+    score = ((file.doorNumber * 5 + file.windowNumber * 4 + file.textNumber)/(5*maxVal + 4*maxVal + maxVal))*100;
+  }
   return (
     <div className="file-view">
       {file ? (
